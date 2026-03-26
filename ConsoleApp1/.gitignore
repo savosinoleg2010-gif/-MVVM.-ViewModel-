@@ -1,0 +1,90 @@
+# ============================
+# .gitignore для .NET / Avalonia
+# ============================
+
+# --- Папки сборки (Build Output) ---
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]uild/
+[Bb]uildLog/
+*.log
+
+# --- Visual Studio ---
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.pidb
+*.sdf
+*.ipdb
+*.VC.db
+*.VC.VC.opendb
+*.opensdf
+*.VC.opendb
+*.cache
+*.tlog
+*.lastbuildstate
+*.builds
+*.cache
+*.dll.refresh
+*.exe.refresh
+*.pdb.refresh
+*.xml.refresh
+
+# --- Visual Studio Code ---
+.vscode/
+*.code-workspace
+
+# --- JetBrains (Rider, ReSharper) ---
+.idea/
+*.iml
+*.ipr
+*.iws
+*.idea/
+*.resharper
+*.ncrunchproject
+*.sln.ide
+
+# --- MonoDevelop / Xamarin Studio ---
+*.pidb
+*.userprefs
+
+# --- NuGet ---
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+.nuget/packages/
+.nuget/project.json
+
+# --- .NET Core ---
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# --- Test Results ---
+[Tt]est[Rr]esult*/
+[Bb]uild[D]ependencies/
+
+# --- Application specific ---
+*.local
+appsettings.Development.json
+
+# --- OS generated ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Backup files ---
+*.bak
+*.backup
+*~
