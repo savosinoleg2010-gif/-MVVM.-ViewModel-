@@ -1,0 +1,171 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ConsoleApp1.ViewModels"
+        x:Class="ConsoleApp1.MainWindow"
+        Title="Калькулятор чаевых"
+        Width="560" Height="520"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        Background="#1a1a2e">
+
+    <Window.DataContext>
+        <vm:TipCalculatorViewModel/>
+    </Window.DataContext>
+
+    <Grid Margin="25" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+        
+        <!-- Заголовок -->
+        <TextBlock Grid.Row="0" 
+                   Text="🍽 Калькулятор чаевых" 
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="#e94560"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+        <!-- Сумма счета -->
+        <Border Grid.Row="1" 
+                Background="#16213e" 
+                CornerRadius="12" 
+                Padding="20"
+                Margin="0,0,0,15">
+            <StackPanel>
+                <TextBlock Text="💰 Сумма счета" 
+                           FontSize="14"
+                           Foreground="#a0a0a0"
+                           Margin="0,0,0,8"/>
+                <NumericUpDown Value="{Binding BillAmount}"
+                               Minimum="0"
+                               Maximum="1000000"
+                               Increment="10"
+                               FormatString="C2"
+                               Height="40"
+                               FontSize="16"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Процент чаевых -->
+        <Border Grid.Row="2" 
+                Background="#16213e" 
+                CornerRadius="12" 
+                Padding="20"
+                Margin="0,0,0,15">
+            <StackPanel>
+                <Grid>
+                    <TextBlock Text="⭐ Процент чаевых" 
+                               FontSize="14"
+                               Foreground="#a0a0a0"/>
+                    <Border Background="#e94560"
+                            CornerRadius="8"
+                            HorizontalAlignment="Right">
+                        <TextBlock Text="{Binding TipPercent, StringFormat={}{0:F0}%}"
+                                   Foreground="White"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Padding="12,4"/>
+                    </Border>
+                </Grid>
+                <Slider Value="{Binding TipPercent}"
+                        Minimum="0" Maximum="50"
+                        Margin="0,10,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Button Content="5%" Command="{Binding SetTipPercentCommand}" CommandParameter="5"
+                            Height="34" Width="55" Margin="0,0,8,0"/>
+                    <Button Content="10%" Command="{Binding SetTipPercentCommand}" CommandParameter="10"
+                            Height="34" Width="55" Margin="0,0,8,0"/>
+                    <Button Content="15%" Command="{Binding SetTipPercentCommand}" CommandParameter="15"
+                            Height="34" Width="55" Margin="0,0,8,0"/>
+                    <Button Content="20%" Command="{Binding SetTipPercentCommand}" CommandParameter="20"
+                            Height="34" Width="55"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Количество людей -->
+        <Border Grid.Row="3" 
+                Background="#16213e" 
+                CornerRadius="12" 
+                Padding="20"
+                Margin="0,0,0,15">
+            <StackPanel>
+                <TextBlock Text="👥 Количество людей" 
+                           FontSize="14"
+                           Foreground="#a0a0a0"
+                           Margin="0,0,0,8"/>
+                <NumericUpDown Value="{Binding NumberOfPeople}"
+                               Minimum="1"
+                               Maximum="100"
+                               Increment="1"
+                               FormatString="F0"
+                               Height="40"
+                               FontSize="16"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Округлять -->
+        <CheckBox Grid.Row="4" 
+                  Content="🔢 Округлять итог вверх до целого"
+                  IsChecked="{Binding RoundUp}"
+                  FontSize="15"
+                  Foreground="#e94560"
+                  Margin="0,0,0,20"/>
+
+        <!-- Результаты -->
+        <Border Grid.Row="5" 
+                Background="#16213e" 
+                CornerRadius="12" 
+                Padding="20"
+                Margin="0,0,0,20">
+            <StackPanel>
+                <TextBlock Text="📊 Результаты" 
+                           FontSize="16" 
+                           FontWeight="Bold"
+                           Foreground="#a0a0a0" 
+                           Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding TipAmount, StringFormat='Чаевые: {0:C2}'}" 
+                           FontSize="16"
+                           Foreground="#ffffff"
+                           Margin="0,6"/>
+                <TextBlock Text="{Binding TotalAmount, StringFormat='Итого с чаевыми: {0:C2}'}" 
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="#e94560"
+                           Margin="0,10"/>
+                <Border Background="#4ecca3" 
+                        CornerRadius="10" 
+                        Padding="15" 
+                        Margin="0,10,0,5">
+                    <TextBlock Text="{Binding AmountPerPerson, StringFormat='На человека: {0:C2}'}" 
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Foreground="#1a1a2e"
+                               HorizontalAlignment="Center"/>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <!-- Кнопки -->
+        <Grid Grid.Row="6" ColumnDefinitions="*,15,*">
+            <Button Grid.Column="0" 
+                    Command="{Binding ResetCommand}" 
+                    Content="🔄 Сброс"
+                    Height="44"
+                    FontSize="15"
+                    FontWeight="SemiBold"
+                    CornerRadius="8"
+                    Background="#0f3460"
+                    Foreground="#ffffff"
+                    Cursor="Hand"/>
+            <Button Grid.Column="2" 
+                    Command="{Binding CalculateCommand}" 
+                    Content="✅ Рассчитать"
+                    Height="44"
+                    FontSize="15"
+                    FontWeight="SemiBold"
+                    CornerRadius="8"
+                    Background="#e94560"
+                    Foreground="#ffffff"
+                    Cursor="Hand"/>
+        </Grid>
+    </Grid>
+</Window>

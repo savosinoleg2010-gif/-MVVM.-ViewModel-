@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "c:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "c:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "c:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectPath": "c:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\Oleg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\obj\\",
+        "outputPath": "c:\\Users\\Oleg\\Music\\-MVVM.-ViewModel-\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Oleg\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,28 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[11.2.3, )"
+            },
+            "Avalonia.Desktop": {
+              "target": "Package",
+              "version": "[11.2.3, )"
+            },
+            "Avalonia.Diagnostics": {
+              "target": "Package",
+              "version": "[11.2.3, )"
+            },
+            "Avalonia.Fonts.Inter": {
+              "target": "Package",
+              "version": "[11.2.3, )"
+            },
+            "Avalonia.Themes.Fluent": {
+              "target": "Package",
+              "version": "[11.2.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
